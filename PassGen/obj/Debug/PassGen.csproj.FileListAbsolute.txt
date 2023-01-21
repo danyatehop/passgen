@@ -1,0 +1,11 @@
+D:\C#projects\PassGen\PassGen\bin\Debug\PassGen.exe.config
+D:\C#projects\PassGen\PassGen\bin\Debug\PassGen.exe
+D:\C#projects\PassGen\PassGen\bin\Debug\PassGen.pdb
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.csproj.AssemblyReference.cache
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.csproj.SuggestedBindingRedirects.cache
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.Properties.Resources.resources
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.csproj.GenerateResource.cache
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.csproj.CoreCompileInputs.cache
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.exe
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.pdb
+D:\C#projects\PassGen\PassGen\obj\Debug\PassGen.formMain.resources
