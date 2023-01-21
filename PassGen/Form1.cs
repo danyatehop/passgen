@@ -15,8 +15,27 @@ namespace PassGen
 
         private void buttonGen_Click(object sender, EventArgs e)
         {
-            int passCount = Convert.ToInt32(textBoxCount.Text);
-            int passLength = Convert.ToInt32(textBoxLength.Text);
+            int passCount = 0;
+            int passLength = 0;
+
+            try
+            {
+                passCount = Convert.ToInt32(textBoxCount.Text);
+            }
+            catch 
+            { 
+                MessageBox.Show("Значение должно быть целочисленным", "Неверное значение"); 
+            }
+
+            try
+            {
+                passLength = Convert.ToInt32(textBoxLength.Text);
+            }
+            catch 
+            {
+                MessageBox.Show("Значение должно быть целочисленным", "Неверное значение");
+            }
+
             string[] res = genPass(getList(digits, letters, symbols), passCount, passLength);
             textBoxResult.Text = "";
             foreach (string s in res)
