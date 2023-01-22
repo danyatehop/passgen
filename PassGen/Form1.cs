@@ -8,6 +8,7 @@ namespace PassGen
         string digits = "0123456789";
         string letters = "qwertyuiopasdfghjklzxcvbnm";
         string symbols = "!@#$%^&*()";
+
         public formMain()
         {
             InitializeComponent();

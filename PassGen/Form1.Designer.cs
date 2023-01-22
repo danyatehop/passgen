@@ -34,6 +34,7 @@ namespace PassGen
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.labelCount = new System.Windows.Forms.Label();
             this.labelLength = new System.Windows.Forms.Label();
             this.textBoxCount = new System.Windows.Forms.TextBox();
@@ -108,8 +109,9 @@ namespace PassGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(395, 257);
+            this.ClientSize = new System.Drawing.Size(395, 256);
             this.Controls.Add(this.buttonRes);
             this.Controls.Add(this.buttonGen);
             this.Controls.Add(this.textBoxResult);
@@ -117,6 +119,8 @@ namespace PassGen
             this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.labelLength);
             this.Controls.Add(this.labelCount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formMain";
             this.Text = "Генератор паролей";
             this.ResumeLayout(false);
@@ -133,9 +137,7 @@ namespace PassGen
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Button buttonGen;
         private System.Windows.Forms.Button buttonRes;
-
-
-        
+       
     }
 
 }
