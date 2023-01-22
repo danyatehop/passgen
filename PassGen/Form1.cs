@@ -62,7 +62,7 @@ namespace PassGen
 
         private static string[] genPass(char[] list, int passCount, int passLength)
         {
-            string result = "";
+            string result;
             string[] resultList = new string[passCount];
             Random rand = new Random();
 
@@ -75,7 +75,7 @@ namespace PassGen
                     result += list[index];
                 }
 
-                resultList[i] = $"{result}\n";
+                resultList[i] = result;
             }
 
             return resultList;
