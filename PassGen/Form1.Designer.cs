@@ -42,6 +42,9 @@ namespace PassGen
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.buttonGen = new System.Windows.Forms.Button();
             this.buttonRes = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // labelCount
@@ -105,6 +108,32 @@ namespace PassGen
             this.buttonRes.UseVisualStyleBackColor = true;
             this.buttonRes.Click += new System.EventHandler(this.buttonRes_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(190, 221);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(301, 221);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.TabIndex = 8;
+            this.buttonExit.Text = "Выход";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.saveFileDialog.FilterIndex = 2;
+            this.saveFileDialog.RestoreDirectory = true;
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +141,8 @@ namespace PassGen
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(395, 256);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonRes);
             this.Controls.Add(this.buttonGen);
             this.Controls.Add(this.textBoxResult);
@@ -137,7 +168,9 @@ namespace PassGen
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Button buttonGen;
         private System.Windows.Forms.Button buttonRes;
-       
+        private Button buttonSave;
+        private Button buttonExit;
+        private SaveFileDialog saveFileDialog;
     }
 
 }
