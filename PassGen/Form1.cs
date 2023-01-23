@@ -7,9 +7,9 @@ namespace PassGen
 {
     public partial class formMain : Form
     {
-        string digits = "0123456789";
-        string letters = "qwertyuiopasdfghjklzxcvbnm";
-        string symbols = "!@#$%^&*()";
+        static string digits = "0123456789";
+        static string letters = "qwertyuiopasdfghjklzxcvbnm";
+        static string symbols = "!@#$%^&*()";
 
         public formMain()
         {
@@ -99,8 +99,9 @@ namespace PassGen
             string result;
             string[] resultList = new string[passCount];
             Random rand = new Random();
+            bool check = false;
 
-            while (checkPass(resultList) == false){
+            while (check == false){
 
                 for (int i = 0; i < passCount; i++)
                 {
@@ -112,13 +113,15 @@ namespace PassGen
                     }
 
                     resultList[i] = result;
+                    
                 }
+                check = checkPass(resultList);
             }
 
             return resultList;
         }
 
-        private bool checkPass(string[] resultPass)
+        private static bool checkPass(string[] resultPass)
         {
             bool result = false;
 
