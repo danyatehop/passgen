@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PassGen
@@ -22,7 +23,6 @@ namespace PassGen
 
             int[] result = passCure(passCount, passLength);
 
-
             textBoxResult.AppendText(passList(result[0], result[1]));
         }
 
@@ -37,7 +37,8 @@ namespace PassGen
             }
             catch
             {
-                MessageBox.Show("Значение поля \"Количество паролей\" обязательно к заполнению и должно быть целочисленным", "Неверное или пустое значение");
+                MessageBox.Show("Значение поля \"Количество паролей\" обязательно к заполнению и должно быть целочисленным", 
+                                "Неверное или пустое значение");
             }
 
             try
@@ -46,7 +47,8 @@ namespace PassGen
             }
             catch
             {
-                MessageBox.Show("Значение поля \"Длинна паролей\" обязательно к заполнению и должно быть целочисленным", "Неверное или пустое значение");
+                MessageBox.Show("Значение поля \"Длинна паролей\" обязательно к заполнению и должно быть целочисленным", 
+                                "Неверное или пустое значение");
             }
             passRes = new int[] { passCount, passLength };
 
@@ -55,9 +57,13 @@ namespace PassGen
 
         private string passList(int passCount, int passLength)
         {
-            string[] res = genPass(getList(digits, letters, symbols), passCount, passLength);
+
+            char[] resultPass = getList(digits, letters, symbols);
+            string[] res = genPass(resultPass, passCount, passLength);
             string pass = "";
+            
             textBoxResult.Text = "";
+
             foreach (string s in res)
             {
                 pass += (s + "\r\n");
@@ -94,19 +100,46 @@ namespace PassGen
             string[] resultList = new string[passCount];
             Random rand = new Random();
 
-            for (int i = 0; i < passCount; i++)
-            {
-                result = "";
-                for (int j = 0; j < passLength; j++)
-                {
-                    int index = rand.Next(0, list.Length);
-                    result += list[index];
-                }
+            while (checkPass(resultList) == false){
 
-                resultList[i] = result;
+                for (int i = 0; i < passCount; i++)
+                {
+                    result = "";
+                    for (int j = 0; j < passLength; j++)
+                    {
+                        int index = rand.Next(0, list.Length);
+                        result += list[index];
+                    }
+
+                    resultList[i] = result;
+                }
             }
 
             return resultList;
+        }
+
+        private bool checkPass(string[] resultPass)
+        {
+            bool result = false;
+
+            foreach (char d in digits) 
+            {
+                foreach (string pass in resultPass) { if (pass.Contains(d)) break; continue; }
+            }
+            foreach (char l in letters)
+            {
+                foreach (string pass in resultPass) { if (pass.Contains(l)) break; continue; }
+            }
+            foreach (char L in letters.ToUpper())
+            {
+                foreach (string pass in resultPass) { if (pass.Contains(L)) break; continue; }
+            }
+            foreach (char s in symbols)
+            {
+                foreach (string pass in resultPass) { if (pass.Contains(s)) break; result = true; }
+            }
+
+            return result;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
